@@ -69,7 +69,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2, alpha: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(W, H)
-    renderer.setClearColor(0x000000, 0)   // transparent — CSS gradient shows through
+    renderer.setClearColor(0xcce0ea, 1)   // sky blue — matches hero background, no black bar
     el.appendChild(renderer.domElement)
 
     // ── Uniforms ──────────────────────────────────────────────────────────

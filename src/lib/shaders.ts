@@ -158,6 +158,6 @@ export const grainFragmentShader = /* glsl */`
     float grain  = disc * random(ipos * uTime) * 0.07 * uIntro;
 
     gl_FragColor.rgb = color.rgb - vec3(grain);
-    gl_FragColor.a   = 1.;
+    gl_FragColor.a   = color.a;
   }
 `
