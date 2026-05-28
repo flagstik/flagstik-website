@@ -30,9 +30,8 @@ export default function Hero() {
       >
         <p style={{
           fontFamily:    "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
-          fontStyle:     'italic',
           fontWeight:    400,
-          fontSize:      'clamp(0.75rem, 1.1vw, 1rem)',
+          fontSize:      'clamp(0.9rem, 1.4vw, 1.25rem)',
           color:         'rgba(255,255,255,0.85)',
           letterSpacing: '0.18em',
         }}>
