@@ -15,26 +15,6 @@ export default function Hero() {
         background:'transparent',
       }}
     >
-      {/* Golf image — full section, masked to fade out at top ~55% */}
-      <img
-        src="/hero-golf.jpg"
-        alt=""
-        aria-hidden
-        style={{
-          position:          'absolute',
-          inset:             0,
-          width:             '100%',
-          height:            '100%',
-          objectFit:         'cover',
-          objectPosition:    'center bottom',
-          display:           'block',
-          userSelect:        'none',
-          pointerEvents:     'none',
-          WebkitMaskImage:   'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
-          maskImage:         'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
-        }}
-      />
-
       {/* Tagline — sits just below the Flagstik logo particle */}
       <div
         style={{

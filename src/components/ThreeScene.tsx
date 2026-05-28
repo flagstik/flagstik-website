@@ -180,7 +180,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
       style={{
         position:   'fixed',
         inset:      0,
-        zIndex:     0,
+        zIndex:     5,
         /* Sky gradient — matches the golf photo sky; visible through transparent WebGL */
         background: 'linear-gradient(to bottom, #cce0ea 0%, #a8c8d6 55%, #90b8ca 100%)',
       }}

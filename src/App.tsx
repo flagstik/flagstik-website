@@ -177,6 +177,15 @@ export default function App() {
       scrollTl.to(mainParticles.position, { x: 0,    y: -r, z: -4*r, duration: 1, ease: 'power3.inOut' })
     }, 200)
 
+    // ── Hero image fade — disappears as hero scrolls out of view ─────────────
+    ScrollTrigger.create({
+      trigger:    '#home',
+      start:      'bottom 85%',
+      end:        'bottom top',
+      scrub:      true,
+      onUpdate:   (self) => gsap.set('#hero-image-layer', { opacity: 1 - self.progress }),
+    })
+
     return () => {
       clearInterval(counterInterval)
       clearInterval(particlePoll)
@@ -189,12 +198,41 @@ export default function App() {
   return (
     <>
       <ThreeScene ref={sceneRef} />
+
+      {/* Hero photo — fixed at z:2, BELOW the canvas (z:5) so particles float over it.
+          Fades out via ScrollTrigger when the hero section scrolls away. */}
+      <div
+        id="hero-image-layer"
+        style={{
+          position:      'fixed',
+          inset:         0,
+          zIndex:        2,
+          pointerEvents: 'none',
+        }}
+      >
+        <img
+          src="/hero-golf.jpg"
+          alt=""
+          aria-hidden
+          style={{
+            width:             '100%',
+            height:            '100%',
+            objectFit:         'cover',
+            objectPosition:    'center bottom',
+            userSelect:        'none',
+            pointerEvents:     'none',
+            WebkitMaskImage:   'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
+            maskImage:         'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
+          }}
+        />
+      </div>
+
       <Cursor />
       <Loader />
       <Header />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <main id="content" style={{ opacity: 0, position: 'relative', zIndex: 10 }}>
+          <main id="content" style={{ opacity: 0, position: 'relative' }}>
             <Hero />
             <Manifesto />
             <Agency />

@@ -28,8 +28,10 @@ body {
   background: #fff;
 }
 
-/* GSAP ScrollSmoother wrappers */
-#smooth-wrapper { overflow: hidden; }
+/* GSAP ScrollSmoother wrappers
+   z-index: 15 puts smooth-wrapper above the ThreeScene canvas (z:5),
+   so white-bg sections cover the canvas while transparent hero lets it show */
+#smooth-wrapper { overflow: hidden; position: relative; z-index: 15; }
 #smooth-content  { will-change: transform; }
 
 /* Header layout — kept in CSS so GSAP clearProps cannot wipe it */
