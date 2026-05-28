@@ -197,6 +197,15 @@ export default function App() {
 
   return (
     <>
+      {/* Sky gradient — z:1, behind everything else, provides the sky colour */}
+      <div style={{
+        position:      'fixed',
+        inset:         0,
+        zIndex:        1,
+        background:    'linear-gradient(to bottom, #cce0ea 0%, #a8c8d6 55%, #90b8ca 100%)',
+        pointerEvents: 'none',
+      }} />
+
       <ThreeScene ref={sceneRef} />
 
       {/* Hero photo — fixed at z:2, BELOW the canvas (z:5) so particles float over it.

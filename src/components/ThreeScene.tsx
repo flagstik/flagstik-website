@@ -69,7 +69,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2, alpha: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(W, H)
-    renderer.setClearColor(0xcce0ea, 1)   // sky blue — matches hero background, no black bar
+    renderer.setClearColor(0x000000, 0)   // transparent — sky gradient div behind canvas shows through
     el.appendChild(renderer.domElement)
 
     // ── Uniforms ──────────────────────────────────────────────────────────
@@ -181,8 +181,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
         position:   'fixed',
         inset:      0,
         zIndex:     5,
-        /* Sky gradient — matches the golf photo sky; visible through transparent WebGL */
-        background: 'linear-gradient(to bottom, #cce0ea 0%, #a8c8d6 55%, #90b8ca 100%)',
+        background: 'transparent',
       }}
     />
   )
