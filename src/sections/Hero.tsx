@@ -30,8 +30,8 @@ export default function Hero() {
           display:           'block',
           userSelect:        'none',
           pointerEvents:     'none',
-          WebkitMaskImage:   'linear-gradient(to bottom, transparent 0%, transparent 20%, black 55%, black 100%)',
-          maskImage:         'linear-gradient(to bottom, transparent 0%, transparent 20%, black 55%, black 100%)',
+          WebkitMaskImage:   'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
+          maskImage:         'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
         }}
       />
     </section>

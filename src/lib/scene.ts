@@ -30,12 +30,12 @@ export interface ModelConfig {
 
 // ─── Palette — gray shades for white background ────────────────────────────────
 export const PALETTE = [
-  new THREE.Color('#444444'),  // dark gray
-  new THREE.Color('#888888'),  // medium gray
-  new THREE.Color('#333333'),  // darker gray
-  new THREE.Color('#666666'),  // mid gray
-  new THREE.Color('#aaaaaa'),  // light gray
-  new THREE.Color('#555555'),  // medium-dark gray
+  new THREE.Color('#ffffff'),  // white
+  new THREE.Color('#f0f0f0'),  // near white
+  new THREE.Color('#ffffff'),  // white
+  new THREE.Color('#e8e8e8'),  // soft white
+  new THREE.Color('#ffffff'),  // white
+  new THREE.Color('#f5f5f5'),  // near white
 ]
 
 // ─── Shared uniforms (referenced by both particle system and grain pass) ──────
@@ -46,10 +46,10 @@ export function createUniforms(isMobile: boolean) {
     uIntro:    { value: 0 },
     uTime:     { value: 0 },
     uCursor:   { value: new THREE.Vector2() },
-    uColorA:   { value: new THREE.Color('#333333') },  // dark gray   (noise mix target A)
-    uColorB:   { value: new THREE.Color('#777777') },  // mid gray
-    uColorC:   { value: new THREE.Color('#999999') },  // lighter gray
-    uColorD:   { value: new THREE.Color('#888888') },  // medium gray (noise mix target D)
+    uColorA:   { value: new THREE.Color('#ffffff') },  // white
+    uColorB:   { value: new THREE.Color('#f0f0f0') },  // near white
+    uColorC:   { value: new THREE.Color('#ffffff') },  // white
+    uColorD:   { value: new THREE.Color('#f5f5f5') },  // soft white
   }
 }
 

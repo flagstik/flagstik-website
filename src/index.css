@@ -32,6 +32,13 @@ body {
 #smooth-wrapper { overflow: hidden; }
 #smooth-content  { will-change: transform; }
 
+/* Header layout — kept in CSS so GSAP clearProps cannot wipe it */
+#main-header {
+  display:         flex !important;
+  justify-content: flex-end !important;
+  align-items:     center !important;
+}
+
 /* Text reveal split-text helper */
 .overflow-hidden { overflow: hidden; }
 

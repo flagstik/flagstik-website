@@ -110,7 +110,6 @@ export default function App() {
 
       // Step 2 (t=300ms): Reveal header + content
       timers.push(setTimeout(() => {
-        gsap.set('#main-header', { clearProps: 'all' })
         gsap.to('#main-header', { opacity: 1, y: 0, duration: 0.8, ease: 'power4.out' })
 
         gsap.set('#content', { clearProps: 'all' })
@@ -170,9 +169,9 @@ export default function App() {
 
       // Scroll-driven particle position (camera path through sections)
       // Positions scaled for closer camera (z=30 → visible half-width ~24 units)
-      mainParticles.position.set(0, 6 * (isMobile ? 0.5 : 1), 0)
+      mainParticles.position.set(0, 10 * (isMobile ? 0.5 : 1), 0)
       scrollTl.fromTo(mainParticles.position,
-        { x: 0, y: 6*r }, { x: -5*r, y: -2*r, duration: 1, ease: 'power3.inOut' })
+        { x: 0, y: 10*r }, { x: -5*r, y: -2*r, duration: 1, ease: 'power3.inOut' })
       scrollTl.to(mainParticles.position, { x: 6*r, y: 0, z: -2*r, duration: 1, ease: 'power3.inOut' })
       scrollTl.to(mainParticles.position, { x: -5*r, y: -r, z: 0,  duration: 1, ease: 'power3.inOut' })
       scrollTl.to(mainParticles.position, { x: 0,    y: -r, z: -4*r, duration: 1, ease: 'power3.inOut' })

@@ -151,7 +151,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
 
       // Kick off intro via GSAP (called from App.tsx after loading screen)
       // Position set to hero default
-      mainPts.position.set(4 * (isMobile ? 0.5 : 1), 0, 0)
+      mainPts.position.set(0, 10 * (isMobile ? 0.5 : 1), 0)
     })
 
     // ── Resize ────────────────────────────────────────────────────────────
