@@ -184,7 +184,7 @@ export function buildMainParticles(
     mainSamplerIndex: 0,
     rotation:         new THREE.Vector3(0, Math.PI * 0.05, 0),
     translate:        new THREE.Vector3(0, 0, 0),
-    scale:            2.0,
+    scale:            1.8,
     scene:            createRetroTVScene(),
   }
 
@@ -302,3 +302,4 @@ export function loadModels(configs: ModelConfig[]): Promise<ModelConfig[]> {
     )
   )
 }
+

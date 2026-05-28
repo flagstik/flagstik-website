@@ -14,15 +14,16 @@ export default function Expertise() {
       display:       'flex',
       flexDirection: 'column',
       justifyContent:'center',
+      background:    '#fff',
     }}>
-      {/* Scrolling marquee strip */}
       <div style={{ overflow: 'hidden', marginBottom: 80 }}>
         <h3 className="strip" data-amount="0.5" style={{
-          fontFamily: 'Oswald, sans-serif',
-          fontWeight: 600,
+          fontFamily: "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
+          fontWeight: 400,
           color:      '#0a0a0a',
           fontSize:   'clamp(3rem, 8vw, 9rem)',
           margin:     0,
+          fontStyle:  'italic',
         }}>
           {[0, 1, 2].map((i) => (
             <span key={i} style={{ marginRight: '4rem', display: 'flex', gap: '0.4em', alignItems:'baseline' }}>
@@ -33,15 +34,14 @@ export default function Expertise() {
         </h3>
       </div>
 
-      {/* 4-column grid */}
       <div style={{ padding: '0 clamp(24px, 4vw, 80px)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40 }}>
           {AREAS.map(area => (
             <div key={area.title} className="words-splitted" data-amount="1">
               <h3 style={{
                 color:         '#0a0a0a',
-                fontFamily:    'Oswald, sans-serif',
-                fontWeight:    500,
+                fontFamily:    "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
+                fontWeight:    400,
                 fontSize:      '1.6rem',
                 borderBottom:  '1px solid rgba(0,0,0,0.15)',
                 paddingBottom: 12,
@@ -54,8 +54,8 @@ export default function Expertise() {
                   <li key={item} style={{
                     padding:    '8px 0',
                     color:      'rgba(0,0,0,0.65)',
-                    fontSize:   '1.1rem',
-                    fontFamily: 'sans-serif',
+                    fontSize:   '1.05rem',
+                    fontFamily: "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
                     fontWeight: 400,
                   }}>
                     {item}

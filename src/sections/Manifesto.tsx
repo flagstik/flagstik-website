@@ -1,5 +1,4 @@
-// ─── EDIT THIS ────────────────────────────────────────────────────────────────
-const TEXT = 'Dedicated to elevating your golf course\'s online presence through custom digital solutions that highlight what makes your course truly unique.'
+const TEXT = "Dedicated to elevating your golf course's online presence through custom digital solutions that highlight what makes your course truly unique."
 
 export default function Manifesto() {
   return (
@@ -9,12 +8,13 @@ export default function Manifesto() {
       padding:     'clamp(80px, 10vw, 160px) clamp(24px, 4vw, 80px)',
       display:     'flex',
       alignItems:  'center',
+      background:  '#fff',
     }}>
       <div className="words-splitted" data-amount="3" style={{
         fontSize:      'clamp(1.6rem, 3.5vw, 3.5rem)',
-        lineHeight:    1.2,
+        lineHeight:    1.3,
         color:         '#0a0a0a',
-        fontFamily:    'Oswald, sans-serif',
+        fontFamily:    "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
         textTransform: 'uppercase',
         textAlign:     'center',
         width:         '100%',

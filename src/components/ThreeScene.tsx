@@ -66,10 +66,10 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     const camera     = new THREE.PerspectiveCamera(fov, W / H, 0.1)
     camera.position.set(0, 0, 30)
 
-    const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2 })
+    const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2, alpha: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(W, H)
-    renderer.setClearColor(0xffffff, 1)   // white canvas background
+    renderer.setClearColor(0x000000, 0)   // transparent — CSS gradient shows through
     el.appendChild(renderer.domElement)
 
     // ── Uniforms ──────────────────────────────────────────────────────────
@@ -185,10 +185,11 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     <div
       ref={mountRef}
       style={{
-        position: 'fixed',
-        inset:    0,
-        zIndex:   0,
-        background: '#fff',
+        position:   'fixed',
+        inset:      0,
+        zIndex:     0,
+        /* Sky gradient — matches the golf photo sky; visible through transparent WebGL */
+        background: 'linear-gradient(to bottom, #cce0ea 0%, #a8c8d6 55%, #90b8ca 100%)',
       }}
     />
   )
@@ -196,3 +197,4 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
 
 ThreeScene.displayName = 'ThreeScene'
 export default ThreeScene
+
