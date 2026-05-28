@@ -1,76 +1,65 @@
 /**
- * Hero.tsx — "ELEVATE YOUR COURSE" full-viewport hero
- * Text sits in the lower-left, particle system floats right.
- * GSAP SplitText handles the word stagger on load.
- *
- * ─── EDIT THESE to customize ──────────────────────────────────────────────────
+ * Hero.tsx — Full-screen golf course image with "flagstik." in the sky
+ * Image anchored to the bottom; text floats in the negative space above.
  */
-const HEADLINE_OUTLINE = 'ELEVATE'
-const HEADLINE_SOLID   = ['YOUR', 'COURSE']
-const SUBHEAD = (
-  <>
-    We create <strong>tailored web solutions</strong> at the intersection of{' '}
-    <strong>design</strong> and <strong>technology</strong>, helping golf courses to{' '}
-    <strong>attract members</strong> and grow their online presence, today.
-  </>
-)
-// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Hero() {
   return (
     <section
       id="home"
       style={{
-        color:         '#0a0a0a',
-        minHeight:     '100vh',
-        display:       'flex',
-        alignItems:    'flex-end',
-        paddingBottom: 'clamp(80px, 10vw, 240px)',
-        marginBottom:  '50vh',
+        position:   'relative',
+        height:     '100vh',
+        minHeight:  '600px',
+        overflow:   'hidden',
+        background: '#b8cdd6',   // sky fallback colour while image loads
       }}
     >
-      <div style={{ width: '100%', padding: '0 clamp(24px, 4vw, 80px)' }}>
-        <h1
-          id="main-title"
-          style={{
-            opacity:       0,
-            fontFamily:    'Oswald, sans-serif',
-            fontWeight:    700,
-            fontSize:      'clamp(3.5rem, 10vw, 9rem)',
-            lineHeight:    1,
-            textTransform: 'uppercase',
-            margin:        0,
-          }}
-        >
-          <span
-            style={{
-              WebkitTextStroke: '2px #0a0a0a',
-              color:            'transparent',
-              display:          'block',
-            }}
-          >
-            {HEADLINE_OUTLINE}
-          </span>
-          {HEADLINE_SOLID.map(word => (
-            <span key={word} style={{ display: 'block' }}>{word}</span>
-          ))}
-        </h1>
+      {/* ── Golf course photo — anchored to bottom ───────────────────────── */}
+      <img
+        src="/hero-golf.jpg"
+        alt=""
+        aria-hidden
+        style={{
+          position:       'absolute',
+          bottom:         0,
+          left:           0,
+          width:          '100%',
+          height:         '100%',
+          objectFit:      'cover',
+          objectPosition: 'center bottom',
+          display:        'block',
+          userSelect:     'none',
+          pointerEvents:  'none',
+        }}
+      />
 
-        <p
-          id="main-description"
+      {/* ── "flagstik." — centred in the sky ─────────────────────────────── */}
+      <div
+        style={{
+          position:        'absolute',
+          inset:           0,
+          display:         'flex',
+          alignItems:      'center',
+          justifyContent:  'center',
+          paddingBottom:   '20vh',   // nudge up into the sky area
+          pointerEvents:   'none',
+        }}
+      >
+        <h1
           style={{
-            opacity:    0,
-            maxWidth:   640,
-            marginTop:  24,
-            fontSize:   'clamp(1rem, 1.5vw, 1.25rem)',
-            lineHeight: 1.4,
-            fontFamily: 'sans-serif',
-            fontWeight: 400,
-            color:      'rgba(0,0,0,0.75)',
+            margin:       0,
+            fontFamily:   "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
+            fontWeight:   400,
+            fontSize:     'clamp(4rem, 10vw, 12rem)',
+            letterSpacing:'0.01em',
+            color:         '#fff',
+            lineHeight:    1,
+            whiteSpace:    'nowrap',
           }}
         >
-          {SUBHEAD}
-        </p>
+          flagstik.
+        </h1>
       </div>
     </section>
   )

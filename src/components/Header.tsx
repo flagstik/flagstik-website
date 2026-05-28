@@ -1,79 +1,57 @@
 /**
- * Header.tsx — Fixed top navigation
- * ─── EDIT THESE ───────────────────────────────────────────────────────────────
+ * Header.tsx — Minimal fixed nav: hamburger left, Flagstik logo right.
+ * White icons — sit over the hero image.
  */
-const SITE_NAME = 'Flagstik'
-const NAV_LINKS = [
-  { label: 'Get In Touch', href: '#contacts' },
-  { label: 'About',        href: '#agency' },
-]
-
 export default function Header() {
   return (
     <header
       id="main-header"
       style={{
-        opacity:   0,
-        position:  'fixed',
-        top:       0,
-        left:      0,
-        right:     0,
-        zIndex:    40,
-        padding:   '12px 0',
-        background:'transparent',
+        opacity:    0,
+        position:   'fixed',
+        top:        0,
+        left:       0,
+        right:      0,
+        zIndex:     40,
+        padding:    'clamp(20px, 3vw, 40px) clamp(24px, 4vw, 60px)',
+        display:    'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        background: 'transparent',
       }}
     >
-      <nav style={{
-        display:        'flex',
-        justifyContent: 'space-between',
-        alignItems:     'center',
-        padding:        '0 clamp(24px, 4vw, 80px)',
-      }}>
-        {/* Logo */}
-        <a href="/" data-cursor="400" style={{
-          color:          '#0a0a0a',
-          textDecoration: 'none',
-          fontFamily:     'Oswald, sans-serif',
-          fontWeight:     700,
-          fontSize:       '1.5rem',
-          letterSpacing:  '0.05em',
-        }}>
-          {SITE_NAME}
-        </a>
-
-        {/* Nav links */}
-        <ul style={{
+      {/* ── Hamburger — top left ─────────────────────────────────────────── */}
+      <button
+        data-cursor="80"
+        aria-label="Menu"
+        style={{
+          background: 'none',
+          border:     'none',
+          cursor:     'pointer',
+          padding:    0,
           display:    'flex',
-          gap:        32,
-          alignItems: 'center',
-          listStyle:  'none',
-        }}>
-          {NAV_LINKS.map(l => (
-            <li key={l.href}>
-              <a href={l.href} data-cursor="100" style={{
-                color:          '#0a0a0a',
-                textDecoration: 'none',
-                fontSize:       '1.1rem',
-                fontFamily:     'sans-serif',
-              }}>
-                {l.label}
-              </a>
-            </li>
-          ))}
+          flexDirection: 'column',
+          gap:        6,
+        }}
+      >
+        <span style={{ display: 'block', width: 28, height: 1.5, background: '#fff', borderRadius: 2 }} />
+        <span style={{ display: 'block', width: 20, height: 1.5, background: '#fff', borderRadius: 2 }} />
+        <span style={{ display: 'block', width: 28, height: 1.5, background: '#fff', borderRadius: 2 }} />
+      </button>
 
-          {/* Hamburger */}
-          <li>
-            <button
-              data-cursor="100"
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
-            >
-              <svg width="24" height="18" viewBox="0 0 24 18" fill="none">
-                <path d="M1 1h22M1 9h22M1 17h22" stroke="#0a0a0a" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </button>
-          </li>
-        </ul>
-      </nav>
+      {/* ── Flagstik logo mark — top right ──────────────────────────────── */}
+      <img
+        src="/flagstik-logo.svg"
+        alt="Flagstik"
+        data-cursor="80"
+        style={{
+          height:  44,
+          width:   'auto',
+          display: 'block',
+          filter:  'brightness(0) invert(1)',  // force white
+          opacity: 0.9,
+        }}
+      />
     </header>
   )
 }

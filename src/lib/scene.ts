@@ -15,7 +15,7 @@ import { EffectComposer }       from 'three/addons/postprocessing/EffectComposer
 import { RenderPass }           from 'three/addons/postprocessing/RenderPass.js'
 import { ShaderPass }           from 'three/addons/postprocessing/ShaderPass.js'
 import { vertexShader, fragmentShader, grainVertexShader, grainFragmentShader } from './shaders'
-import { createFlagstikLogoScene } from './flagstikShape'
+import { createRetroTVScene, createModernComputerScene } from './flagstikShape'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 export interface ModelConfig {
@@ -178,22 +178,32 @@ export function buildMainParticles(
   const count  = isMobile ? 8000 : 15000
   const geo    = new THREE.BufferGeometry()
 
-  // Shape 1: Procedural flagstik (pole + flag triangle) — no GLTF needed
-  const flagstikConfig: ModelConfig = {
+  // Shape 1: Retro TV / old computer monitor (hero view)
+  const retroTVConfig: ModelConfig = {
     src:              '',
     mainSamplerIndex: 0,
-    rotation:         new THREE.Vector3(0, Math.PI * 0.08, 0),  // subtle Y rotation for depth
+    rotation:         new THREE.Vector3(0, Math.PI * 0.05, 0),
     translate:        new THREE.Vector3(0, 0, 0),
-    scale:            3.5,   // bigger — fills more of the right half
-    scene:            createFlagstikLogoScene(),
+    scale:            2.0,
+    scene:            createRetroTVScene(),
   }
 
-  // 4 shape positions
-  const pos1   = sampleShape(flagstikConfig, count)  // shape 1: flagstik (hero)
+  // Shape 2: Modern flat-screen computer
+  const modernComputerConfig: ModelConfig = {
+    src:              '',
+    mainSamplerIndex: 0,
+    rotation:         new THREE.Vector3(0, Math.PI * 0.05, 0),
+    translate:        new THREE.Vector3(0, 0, 0),
+    scale:            1.5,
+    scene:            createModernComputerScene(),
+  }
+
+  // 4 shape positions: retro TV → modern computer → satellite → planet
+  const pos1   = sampleShape(retroTVConfig, count)        // shape 1 (hero)
   shuffleAttribute(pos1)
-  const pos2   = sampleShape(models[0], count)       // shape 2: satellite
-  const pos3   = sampleShape(models[1], count)       // shape 3: terra/planet
-  const pos4   = sampleShape(models[2], count)       // shape 4: astronaut
+  const pos2   = sampleShape(modernComputerConfig, count)  // shape 2
+  const pos3   = sampleShape(models[0], count)             // shape 3: satellite
+  const pos4   = sampleShape(models[1], count)             // shape 4: terra/planet
 
   geo.setAttribute('position',  pos1)
   geo.setAttribute('position2', pos2)

@@ -1,7 +1,7 @@
 /* ─── Global reset + USTA styles ─────────────────────────────────────────────
    All old Vite template CSS removed. Clean slate.
    ─────────────────────────────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
