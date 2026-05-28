@@ -15,7 +15,7 @@ export default function Hero() {
         background:'transparent',
       }}
     >
-      {/* Golf image — full section, masked to fade out at top ~50% */}
+      {/* Golf image — full section, masked to fade out at top ~55% */}
       <img
         src="/hero-golf.jpg"
         alt=""
@@ -34,6 +34,31 @@ export default function Hero() {
           maskImage:         'linear-gradient(to bottom, transparent 0%, transparent 55%, black 78%, black 100%)',
         }}
       />
+
+      {/* Tagline — sits just below the Flagstik logo particle */}
+      <div
+        style={{
+          position:      'absolute',
+          top:           '46%',
+          left:          '50%',
+          transform:     'translateX(-50%)',
+          textAlign:     'center',
+          pointerEvents: 'none',
+          zIndex:        2,
+          whiteSpace:    'nowrap',
+        }}
+      >
+        <p style={{
+          fontFamily:    "'Palatino Linotype', 'Book Antiqua', Palatino, 'Cormorant Garamond', Georgia, serif",
+          fontStyle:     'italic',
+          fontWeight:    400,
+          fontSize:      'clamp(0.75rem, 1.1vw, 1rem)',
+          color:         'rgba(255,255,255,0.85)',
+          letterSpacing: '0.18em',
+        }}>
+          making golf modern.
+        </p>
+      </div>
     </section>
   )
 }

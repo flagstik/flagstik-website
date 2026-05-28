@@ -48,11 +48,8 @@ void main() {
   modelPos.x       += sin(uTime * scale + sinOffset) * intensity;
   modelPos.y       += cos(uTime * scale + sinOffset) * intensity;
 
-  // ── Cursor repulsion + size bloom ─────────────────────────────────────────
-  vec2  diff     = modelPos.xy - uCursor;
-  float diffLen  = length(diff);
-  float distTpc  = 1.0 - smoothstep(0., 4., diffLen);
-  modelPos.xyz  += normalize(vec3(diff, 1.)) * distTpc * (0.5 + vawe * 1.);
+  // ── Cursor repulsion disabled — logo floats independently of mouse ──────────
+  float distTpc  = 0.0;
 
   // ── Output ────────────────────────────────────────────────────────────────
   vec4 viewPos    = viewMatrix * modelPos;
@@ -65,7 +62,7 @@ void main() {
   vColor   = color;
 
   float size = clamp(7.0 * scale, 2., 7.);
-  gl_PointSize = 3.0 * (size + (sin(uTime * 5. + sinOffset) * 0.5 + 0.5) * 1.9 * scaleFactor - 1.5 * vawe * scaleFactor) + distTpc * 12.;
+  gl_PointSize = 3.0 * (size + (sin(uTime * 5. + sinOffset) * 0.5 + 0.5) * 1.9 * scaleFactor - 1.5 * vawe * scaleFactor);
 }
 `
 
