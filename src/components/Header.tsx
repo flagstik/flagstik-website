@@ -31,7 +31,7 @@ export default function Header() {
       }}>
         {/* Logo */}
         <a href="/" data-cursor="400" style={{
-          color:          '#fff',
+          color:          '#0a0a0a',
           textDecoration: 'none',
           fontFamily:     'Oswald, sans-serif',
           fontWeight:     700,
@@ -51,7 +51,7 @@ export default function Header() {
           {NAV_LINKS.map(l => (
             <li key={l.href}>
               <a href={l.href} data-cursor="100" style={{
-                color:          '#fff',
+                color:          '#0a0a0a',
                 textDecoration: 'none',
                 fontSize:       '1.1rem',
                 fontFamily:     'sans-serif',
@@ -68,7 +68,7 @@ export default function Header() {
               style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
             >
               <svg width="24" height="18" viewBox="0 0 24 18" fill="none">
-                <path d="M1 1h22M1 9h22M1 17h22" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M1 1h22M1 9h22M1 17h22" stroke="#0a0a0a" strokeWidth="2" strokeLinecap="round"/>
               </svg>
             </button>
           </li>

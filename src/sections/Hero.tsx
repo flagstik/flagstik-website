@@ -1,5 +1,5 @@
 /**
- * Hero.tsx — "BOOST YOUR BRAND" full-viewport hero
+ * Hero.tsx — "ELEVATE YOUR COURSE" full-viewport hero
  * Text sits in the lower-left, particle system floats right.
  * GSAP SplitText handles the word stagger on load.
  *
@@ -21,7 +21,7 @@ export default function Hero() {
     <section
       id="home"
       style={{
-        color:         '#fff',
+        color:         '#0a0a0a',
         minHeight:     '100vh',
         display:       'flex',
         alignItems:    'flex-end',
@@ -44,7 +44,7 @@ export default function Hero() {
         >
           <span
             style={{
-              WebkitTextStroke: '2px #fff',
+              WebkitTextStroke: '2px #0a0a0a',
               color:            'transparent',
               display:          'block',
             }}
@@ -66,6 +66,7 @@ export default function Hero() {
             lineHeight: 1.4,
             fontFamily: 'sans-serif',
             fontWeight: 400,
+            color:      'rgba(0,0,0,0.75)',
           }}
         >
           {SUBHEAD}

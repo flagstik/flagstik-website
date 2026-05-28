@@ -13,7 +13,7 @@ export default function Manifesto() {
       <div className="words-splitted" data-amount="3" style={{
         fontSize:      'clamp(1.6rem, 3.5vw, 3.5rem)',
         lineHeight:    1.2,
-        color:         '#fff',
+        color:         '#0a0a0a',
         fontFamily:    'Oswald, sans-serif',
         textTransform: 'uppercase',
         textAlign:     'center',

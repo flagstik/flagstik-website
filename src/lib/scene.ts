@@ -28,14 +28,14 @@ export interface ModelConfig {
   scene?:           THREE.Group
 }
 
-// ─── Palette — exact USTA colours (swap these for Flagstik branding) ──────────
+// ─── Palette — gray shades for white background ────────────────────────────────
 export const PALETTE = [
-  new THREE.Color('#f48c18'),  // orange
-  new THREE.Color('#4089dd'),  // blue
-  new THREE.Color('#33478B'),  // dark blue
-  new THREE.Color('#8A5894'),  // purple
-  new THREE.Color('#DE466E'),  // pink
-  new THREE.Color('#EC9354'),  // orange-red
+  new THREE.Color('#444444'),  // dark gray
+  new THREE.Color('#888888'),  // medium gray
+  new THREE.Color('#333333'),  // darker gray
+  new THREE.Color('#666666'),  // mid gray
+  new THREE.Color('#aaaaaa'),  // light gray
+  new THREE.Color('#555555'),  // medium-dark gray
 ]
 
 // ─── Shared uniforms (referenced by both particle system and grain pass) ──────
@@ -46,10 +46,10 @@ export function createUniforms(isMobile: boolean) {
     uIntro:    { value: 0 },
     uTime:     { value: 0 },
     uCursor:   { value: new THREE.Vector2() },
-    uColorA:   { value: PALETTE[0].clone() },
-    uColorB:   { value: PALETTE[2].clone() },
-    uColorC:   { value: PALETTE[1].clone() },
-    uColorD:   { value: PALETTE[1].clone() },
+    uColorA:   { value: new THREE.Color('#333333') },  // dark gray   (noise mix target A)
+    uColorB:   { value: new THREE.Color('#777777') },  // mid gray
+    uColorC:   { value: new THREE.Color('#999999') },  // lighter gray
+    uColorD:   { value: new THREE.Color('#888888') },  // medium gray (noise mix target D)
   }
 }
 
@@ -100,7 +100,7 @@ export function createBackgroundParticles(
   const mat = new THREE.ShaderMaterial({
     uniforms:     { ...uniforms, uProgress: { value: 0 } },
     vertexColors: true,
-    blending:     THREE.AdditiveBlending,
+    blending:     THREE.NormalBlending,
     depthWrite:   false,
     depthTest:    true,
     vertexShader,
@@ -232,7 +232,7 @@ export function buildMainParticles(
   const mat = new THREE.ShaderMaterial({
     uniforms,
     vertexColors: true,
-    blending:     THREE.AdditiveBlending,
+    blending:     THREE.NormalBlending,
     depthWrite:   false,
     depthTest:    true,
     vertexShader,

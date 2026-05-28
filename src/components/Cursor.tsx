@@ -40,7 +40,7 @@ export default function Cursor() {
         width:        16,
         height:       16,
         borderRadius: '50%',
-        border:       '1px solid rgba(255,255,255,0.6)',
+        border:       '1px solid rgba(0,0,0,0.5)',
         pointerEvents:'none',
         zIndex:       200,
         transform:    'translate(-50%,-50%)',

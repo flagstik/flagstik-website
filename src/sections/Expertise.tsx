@@ -20,14 +20,14 @@ export default function Expertise() {
         <h3 className="strip" data-amount="0.5" style={{
           fontFamily: 'Oswald, sans-serif',
           fontWeight: 600,
-          color:      '#fff',
+          color:      '#0a0a0a',
           fontSize:   'clamp(3rem, 8vw, 9rem)',
           margin:     0,
         }}>
           {[0, 1, 2].map((i) => (
             <span key={i} style={{ marginRight: '4rem', display: 'flex', gap: '0.4em', alignItems:'baseline' }}>
               <span>Our </span>
-              <span style={{ WebkitTextStroke: '1px #fff', color: 'transparent' }}>services</span>
+              <span style={{ WebkitTextStroke: '1px #0a0a0a', color: 'transparent' }}>services</span>
             </span>
           ))}
         </h3>
@@ -39,11 +39,11 @@ export default function Expertise() {
           {AREAS.map(area => (
             <div key={area.title} className="words-splitted" data-amount="1">
               <h3 style={{
-                color:         '#fff',
+                color:         '#0a0a0a',
                 fontFamily:    'Oswald, sans-serif',
                 fontWeight:    500,
                 fontSize:      '1.6rem',
-                borderBottom:  '1px solid rgba(255,255,255,0.2)',
+                borderBottom:  '1px solid rgba(0,0,0,0.15)',
                 paddingBottom: 12,
                 marginBottom:  16,
               }}>
@@ -53,7 +53,7 @@ export default function Expertise() {
                 {area.items.map(item => (
                   <li key={item} style={{
                     padding:    '8px 0',
-                    color:      'rgba(255,255,255,0.7)',
+                    color:      'rgba(0,0,0,0.65)',
                     fontSize:   '1.1rem',
                     fontFamily: 'sans-serif',
                     fontWeight: 400,

@@ -69,6 +69,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     const renderer = new THREE.WebGLRenderer({ antialias: window.devicePixelRatio < 2 })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.setSize(W, H)
+    renderer.setClearColor(0xffffff, 1)   // white canvas background
     el.appendChild(renderer.domElement)
 
     // ── Uniforms ──────────────────────────────────────────────────────────
@@ -187,7 +188,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
         position: 'fixed',
         inset:    0,
         zIndex:   0,
-        background: '#000',
+        background: '#fff',
       }}
     />
   )

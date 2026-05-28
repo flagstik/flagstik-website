@@ -12,7 +12,7 @@ export default function Agency() {
           <h2 style={{
             fontFamily:    'Oswald, sans-serif',
             fontWeight:    700,
-            color:         '#fff',
+            color:         '#0a0a0a',
             fontSize:      'clamp(2.5rem, 6vw, 6rem)',
             textTransform: 'uppercase',
             lineHeight:    1,
@@ -21,7 +21,7 @@ export default function Agency() {
             FLAGSTIK
           </h2>
           <p style={{
-            color:      '#fff',
+            color:      'rgba(0,0,0,0.75)',
             fontSize:   'clamp(1rem, 1.5vw, 1.4rem)',
             lineHeight: 1.5,
             fontFamily: 'sans-serif',

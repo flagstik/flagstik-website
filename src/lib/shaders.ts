@@ -153,14 +153,11 @@ export const grainFragmentShader = /* glsl */`
 
     st          *= uSize;
     vec2 ipos    = floor(st);
-    vec3 modColor = vec3(1. - smoothstep(0.1, 0.3, length(ipos + vec2(0.5) - st)));
-    modColor    *= 1./dpr * 1./dpr;
-    modColor    *= random(ipos * uTime);
+    // White-background grain: subtle dark dot matrix that darkens lightly
+    float disc   = 1. - smoothstep(0.15, 0.35, length(ipos + vec2(0.5) - st));
+    float grain  = disc * random(ipos * uTime) * 0.07 * uIntro;
 
-    float tcp    = max(max(color.r, color.g), color.g);
-    vec2 center  = vec2(0.5, 0.5*aspect) * dpr;
-
-    gl_FragColor.rgb = mix(color.rgb, modColor * 0.15 * (1. * (dpr*dpr) - length(center - sti)) * uIntro, 1. - smoothstep(0., 0.2, tcp));
+    gl_FragColor.rgb = color.rgb - vec3(grain);
     gl_FragColor.a   = 1.;
   }
 `

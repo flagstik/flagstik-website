@@ -20,11 +20,11 @@ export default function Team() {
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 24px', width: '100%',
                     marginBottom: 80 }}>
         <div className="words-splitted" data-amount="3">
-          <h2 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, color: '#fff',
+          <h2 style={{ fontFamily: 'Oswald, sans-serif', fontWeight: 700, color: '#0a0a0a',
                        fontSize: 'clamp(2.5rem, 6vw, 6rem)', textTransform: 'uppercase',
                        lineHeight: 1, margin: 0 }}>
             THE<br/>
-            <span style={{ WebkitTextStroke: '2px #fff', color: 'transparent' }}>FLAGSTIK</span><br/>
+            <span style={{ WebkitTextStroke: '2px #0a0a0a', color: 'transparent' }}>FLAGSTIK</span><br/>
             TEAM
           </h2>
         </div>
@@ -40,19 +40,20 @@ export default function Team() {
             data-direction={ri % 2 === 1 ? 'reverse' : undefined}
             style={{ whiteSpace: 'nowrap', display: 'flex', marginTop: ri > 0 ? 48 : 80,
                      fontFamily: 'Oswald, sans-serif', fontSize: 'clamp(2rem, 5vw, 4rem)',
-                     fontWeight: 600, color: '#fff' }}
+                     fontWeight: 600, color: '#0a0a0a' }}
           >
             {[...row, ...row].map((m, i) => (
               <span key={i} style={{ marginRight: '3rem' }}>
-                <span style={m.outline ? { WebkitTextStroke: '1px #fff', color: 'transparent' } : {}}>
+                <span style={m.outline ? { WebkitTextStroke: '1px #0a0a0a', color: 'transparent' } : {}}>
                   {m.name}
                 </span>
                 <div style={{ fontSize: '1rem', fontWeight: 300, marginTop: 8, display: 'flex',
-                              alignItems: 'center', gap: 8 }}>
+                              alignItems: 'center', gap: 8, color: 'rgba(0,0,0,0.6)' }}>
                   {m.role}
                   <a href={m.linkedin} target="_blank" rel="noreferrer"
                      data-cursor="60" onClick={e => e.stopPropagation()}>
-                    <img src="/linkedin-in.svg" width={20} height={20} alt="LinkedIn" />
+                    <img src="/linkedin-in.svg" width={20} height={20} alt="LinkedIn"
+                         />
                   </a>
                 </div>
               </span>
