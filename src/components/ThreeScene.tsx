@@ -87,8 +87,8 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
       renderer, threeScene, camera, W, H, uniforms,
     )
 
-    // ── Cursor tracking (raycaster against z=0 plane) ─────────────────────
-    const cursorNDC  = new THREE.Vector2(-0.85, -0.45)
+    // ── Cursor tracking disabled — camera and particles stay still ───────────
+    const cursorNDC  = new THREE.Vector2(0, 0)
     const raycaster  = new THREE.Raycaster()
     const hitPlane   = new THREE.Mesh(
       new THREE.PlaneGeometry(200, 200),
@@ -97,10 +97,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     hitPlane.position.z = 1
     threeScene.add(hitPlane)
 
-    const onMouseMove = (e: MouseEvent) => {
-      cursorNDC.x =  2 * e.clientX / window.innerWidth  - 1
-      cursorNDC.y = -2 * e.clientY / window.innerHeight + 1
-    }
+    const onMouseMove = (_e: MouseEvent) => { /* mouse tracking disabled */ }
     window.addEventListener('mousemove', onMouseMove)
 
     // ── Render loop ───────────────────────────────────────────────────────
@@ -127,11 +124,7 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
         uniforms.uCursor.value.lerp(new THREE.Vector2(x, y), delta * 4)
       }
 
-      // Camera follows mouse subtly (reduced amplitude for closer camera)
-      camera.position.lerp(
-        new THREE.Vector3(cursorNDC.x * 2, cursorNDC.y * 2, camera.position.z),
-        delta * 4,
-      )
+      // Camera stays fixed — no mouse tracking
       camera.updateProjectionMatrix()
 
       // Main particle gentle sway
