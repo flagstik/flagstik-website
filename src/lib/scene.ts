@@ -60,23 +60,25 @@ export function createBackgroundParticles(
   scene:    THREE.Scene,
 ) {
   const geo     = new THREE.BufferGeometry()
-  const spread  = 20
+  // Camera is at z=30, FOV=60 — visible screen at z=0 is ~55 wide × ~34 tall.
+  // Use wider X/Y spread so particles cover the full viewport.
+  const spreadX = 90
+  const spreadY = 65
+  const spreadZ = 40
   const pos     = new Float32Array(count * 3)
   const normals = new Float32Array(count * 3)
   const opacities = new Float32Array(count).fill(1)
-  const scales  = new Float32Array(count * 3)
+  const scales  = new Float32Array(count)   // itemSize=1, one value per particle
 
   for (let i = 0; i < count; i++) {
-    pos[i*3]     = (Math.random() - 0.5) * spread
-    pos[i*3 + 1] = (Math.random() - 0.5) * spread
-    pos[i*3 + 2] = (Math.random() - 0.5) * spread
+    pos[i*3]     = (Math.random() - 0.5) * spreadX
+    pos[i*3 + 1] = (Math.random() - 0.5) * spreadY
+    pos[i*3 + 2] = (Math.random() - 0.5) * spreadZ
     const dir = new THREE.Vector3().randomDirection()
     normals[i*3]     = dir.x
     normals[i*3 + 1] = dir.y
     normals[i*3 + 2] = dir.z
-    scales[i*3]     = Math.random() * 2
-    scales[i*3 + 1] = Math.random() * 2
-    scales[i*3 + 2] = Math.random() * 2
+    scales[i] = 0.2 + Math.random() * 0.8   // 0.2–1.0 so all particles are visible
   }
 
   // Per-particle colour cycling through palette
@@ -92,7 +94,7 @@ export function createBackgroundParticles(
   geo.setAttribute('normal',   new THREE.BufferAttribute(normals,  3))
   geo.setAttribute('opacity',  new THREE.BufferAttribute(opacities, 1))
   geo.setAttribute('color',    new THREE.BufferAttribute(colors,   3))
-  geo.setAttribute('scale',    new THREE.BufferAttribute(scales,   1))
+  geo.setAttribute('scale',    new THREE.BufferAttribute(scales,    1))
 
   // Background uses own uProgress=0 so it doesn't morph
   const mat = new THREE.ShaderMaterial({

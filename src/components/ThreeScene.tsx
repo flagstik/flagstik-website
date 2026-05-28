@@ -77,8 +77,8 @@ const ThreeScene = forwardRef<SceneHandle>((_, ref) => {
     // Expose uniforms globally in dev so preview/debug tools can force uIntro etc.
     if (import.meta.env.DEV) (window as any).__u = uniforms
 
-    // ── Background particles (700 scatter) ───────────────────────────────
-    const bgParticles = createBackgroundParticles(700, uniforms, threeScene)
+    // ── Background particles — enough to fill the full viewport ─────────
+    const bgParticles = createBackgroundParticles(isMobile ? 1200 : 3000, uniforms, threeScene)
     bgParticles.rotation.set(0, 0, 0)
 
     // ── Post-processing ───────────────────────────────────────────────────

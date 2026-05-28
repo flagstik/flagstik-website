@@ -64,8 +64,8 @@ void main() {
   vPos     = modelPos.xyz;
   vColor   = color;
 
-  float size = clamp(6.0 * scale, 2., 6.);
-  gl_PointSize = 2.5 * (size + (sin(uTime * 5. + sinOffset) * 0.5 + 0.5) * 1.9 * scaleFactor - 1.5 * vawe * scaleFactor) + distTpc * 12.;
+  float size = clamp(7.0 * scale, 2., 7.);
+  gl_PointSize = 3.0 * (size + (sin(uTime * 5. + sinOffset) * 0.5 + 0.5) * 1.9 * scaleFactor - 1.5 * vawe * scaleFactor) + distTpc * 12.;
 }
 `
 
